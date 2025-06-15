@@ -8,12 +8,12 @@ def storage_information_view(request):
     non_closed_visits = []
     for visit in visits:
         duration = get_duration(visit)
-        open_visit_data = {
+        open_visit = {
             'who_entered': visit.passcard.owner_name,
             'entered_at': visit.entered_at,
             'duration': format_duration(duration)
         }
-        non_closed_visits.append(open_visit_data)
+        non_closed_visits.append(open_visit)
 
     context = {
         'non_closed_visits': non_closed_visits,
